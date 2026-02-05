@@ -3,85 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paula Marticorena – Compliance Lab</title>
+<title>Paula Marticorena – Compliance & Communication</title>
 <style>
-    body{ font-family: 'Helvetica Neue', Arial, sans-serif; margin:0; background:#f5f7fb; color:#0b1220; text-align:center; line-height: 1.6; }
-    header{ background:white; padding:40px 20px; box-shadow:0 4px 20px rgba(0,0,0,.05); }
+    :root { --blue: #0052FF; --dark: #0A1128; --gray: #64748b; }
+    body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; padding: 0; color: var(--dark); background: #ffffff; line-height: 1.6; }
     
-    /* LOGO GRANDE CORREGIDO */
-    header img { width: 100%; max-width: 450px; height: auto; display: block; margin: 0 auto; }
+    /* Layout */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    header { padding: 40px 0; border-bottom: 1px solid #f0f0f0; }
     
-    h1{ margin:30px 0 10px; font-size: 2.2rem; font-weight: 700; }
-    .subtitle { font-size: 1.2rem; color: #444; margin-bottom: 20px; font-weight: bold; }
+    /* Logo - Manteniendo el tamaño que funcionó */
+    .logo { width: 100%; max-width: 400px; height: auto; }
 
-    .section{ max-width:800px; margin:40px auto; background:white; padding:40px; border-radius:20px; box-shadow:0 12px 40px rgba(0,0,0,.08); text-align: left; }
-    .section p { font-size: 1.1rem; color: #333; margin-bottom: 15px; }
-    .section ul { margin-bottom: 20px; }
-    .section li { margin-bottom: 10px; font-size: 1.05rem; }
+    .hero { display: flex; flex-wrap: wrap; align-items: center; padding: 80px 0; gap: 60px; }
+    .hero-content { flex: 1; min-width: 320px; text-align: left; }
+    .hero-image { flex: 1; min-width: 320px; }
+    .hero-image img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 0px #f0f4ff; }
 
-    .price-box { text-align: center; margin-top: 30px; border-top: 2px solid #f0f2f5; padding-top: 30px; }
-    .price { font-size: 32px; font-weight: bold; color: #1e40ff; margin: 10px 0; }
-
-    .button-container { text-align: center; margin-top: 25px; }
-    .button{ display:inline-block; margin:8px; padding:15px 25px; color:white; text-decoration:none; border-radius:10px; font-weight:bold; font-size: 1rem; transition: transform 0.2s; }
-    .button:hover { transform: translateY(-2px); opacity: 0.9; }
+    h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 24px; color: var(--dark); font-weight: 800; letter-spacing: -0.02em; }
+    .tagline { color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 16px; display: block; }
     
-    .btn-email { background: #1e40ff; }
-    .btn-whatsapp { background: #25D366; }
-    .btn-linkedin { background: #0077b5; }
+    .description { font-size: 1.25rem; color: var(--gray); margin-bottom: 40px; }
+    
+    .details { background: #f8fafc; padding: 60px 0; text-align: left; }
+    .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
+    
+    h3 { color: var(--blue); margin-bottom: 15px; }
+    ul { padding-left: 20px; color: var(--gray); }
+    li { margin-bottom: 10px; }
 
-    footer{ margin:60px 0; color:#556; font-size: 0.9rem; border-top: 1px solid #ddd; padding-top: 30px; }
+    /* Botones Estilo Original */
+    .cta-group { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
+    .btn { padding: 16px 32px; border-radius: 4px; font-weight: 600; text-decoration: none; transition: 0.3s; font-size: 1rem; }
+    .btn-primary { background: var(--dark); color: white; }
+    .btn-primary:hover { background: var(--blue); }
+    .btn-outline { border: 2px solid var(--dark); color: var(--dark); }
+    .btn-outline:hover { background: var(--dark); color: white; }
+    .btn-linkedin { background: #0077b5; color: white; }
+
+    footer { padding: 60px 0; border-top: 1px solid #eee; color: var(--gray); font-size: 0.9rem; }
+
+    @media (max-width: 768px) { h1 { font-size: 2.5rem; } .hero { padding: 40px 0; } }
 </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.jpg" onerror="this.src='logo.jpg.jpg'" alt="Paula Marticorena">
-    <h1>Compliance, Risk & Strategic Communication</h1>
-    <p class="subtitle">1-Week On-Site Immersive Lab for Global Teams</p>
+    <div class="container">
+        <img src="logo.jpg" onerror="this.src='logo.jpg.jpg'" class="logo" alt="Paula Marticorena">
+    </div>
 </header>
 
-<div class="section">
-    <p><em>In practice, many compliance failures don’t come from a lack of rules. They come from communication breakdowns in English inside international organizations.</em></p>
-    
-    <p>Compliance today is not just about knowing the standard. It’s about explaining risk, obligations and decisions clearly — across roles, cultures and time zones.</p>
-
-    <p>That’s why I design <strong>immersive, on-site compliance & incident communication labs</strong> in English for global and remote teams.</p>
-
-    <h3>Focus Areas:</h3>
-    <ul>
-        <li>Legal & Compliance communication</li>
-        <li>Contracts, ethics & risk language</li>
-        <li>How to explain compliance duties clearly to non-native English speakers</li>
-    </ul>
-
-    <h3>Applied To:</h3>
-    <p>🔹 <strong>ISO 37301</strong> – Compliance Management Systems<br>
-       🔹 <strong>GDPR</strong> – Data protection & breach communication<br>
-       🔹 Multicultural and cross-border environments</p>
-
-    <h3>Format:</h3>
-    <p>✔️ Immersive on-site labs (1 full week)<br>
-       ✔️ Real cases and live simulations<br>
-       ✔️ Practical language: what to say and what risks to avoid</p>
-
-    <p><strong>This is not academic Legal English. It’s decision-making, risk and responsibility — in a second language.</strong></p>
-
-    <div class="price-box">
-        <h2 style="margin-bottom:0;">Investment</h2>
-        <p class="price">USD 9,000 – 15,000</p>
-        
-        <div class="button-container">
-            <a class="button btn-email" href="mailto:marticorenapau@gmail.com">Email Me</a>
-            <a class="button btn-whatsapp" href="https://wa.me/5491163055252">WhatsApp</a>
-            <a class="button btn-linkedin" href="https://www.linkedin.com/in/paula-marticorena" target="_blank">LinkedIn</a>
+<main>
+    <section class="container hero">
+        <div class="hero-content">
+            <span class="tagline">1-WEEK ON-SITE IMMERSIVE LAB</span>
+            <h1>Compliance, Risk & Strategic Communication</h1>
+            <p class="description">
+                In practice, many compliance failures don’t come from a lack of rules. 
+                They come from communication breakdowns in English inside international organizations.
+            </p>
+            <div class="cta-group">
+                <a href="https://wa.me/5491163055252" class="btn btn-primary">WhatsApp Me</a>
+                <a href="mailto:marticorenapau@gmail.com" class="btn btn-outline">Email Inquiry</a>
+                <a href="https://www.linkedin.com/in/paula-marticorena" target="_blank" class="btn btn-linkedin">LinkedIn</a>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="hero-image">
+            <img src="logo.jpg" onerror="this.src='logo.jpg.jpg'" alt="Training session">
+        </div>
+    </section>
 
-<footer>
-    © 2026 Paula Marticorena – Consultant & Trainer <br>
-    <strong>Specialist in Family Law & Succession | Bilingual Legal Educator</strong>
+    <section class="details">
+        <div class="container">
+            <div class="details-grid">
+                <div>
+                    <h3>Focus Areas</h3>
+                    <ul>
+                        <li>Legal & Compliance communication</li>
+                        <li>Contracts, ethics & risk language</li>
+                        <li>Clear communication for non-native speakers</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Applied To</h3>
+                    <ul>
+                        <li>ISO 37301 Compliance Systems</li>
+                        <li>GDPR & Data Protection</li>
+                        <li>Cross-border environments</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Investment</h3>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark); margin: 10px 0;">USD 9k – 15k</p>
+                    <p>Decision-making, risk and responsibility — in a second language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="container">
+    <p><strong>© 2026 Paula Marticorena – Consultant & Trainer</strong></p>
+    <p>Specialist in Family Law & Succession | Bilingual Legal Educator</p>
 </footer>
 
 </body>
