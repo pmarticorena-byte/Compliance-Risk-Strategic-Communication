@@ -1,745 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Compliance Lab — 1-Week On-Site Immersive Lab</title>
-  <meta name="description" content="Immersive on-site compliance & incident-response lab for global teams. Practical deliverables, clear frameworks, English-ready communication." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula Marticorena – Compliance Lab</title>
 
-  <style>
-    :root{
-      --bg:#f3f6fb;
-      --card:#ffffff;
-      --text:#0b1220;
-      --muted:#556274;
-      --line:#e6edf7;
-      --blue:#1e40ff;
-      --blue2:#1f6feb;
-      --green:#16a34a;
-      --gold:#b08a2f;
-      --shadow: 0 10px 30px rgba(8, 20, 40, .08);
-      --radius: 18px;
-      --radius2: 22px;
-      --max: 1080px;
-    }
+<style>
+body{
+font-family: 'Helvetica Neue', Arial, sans-serif;
+margin:0;
+background:#f5f7fb;
+color:#0b1220;
+text-align:center;
+line-height: 1.6;
+}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background: radial-gradient(1200px 700px at 80% -10%, rgba(30,64,255,.14), transparent 60%),
-                  radial-gradient(900px 600px at 20% -20%, rgba(22,163,74,.10), transparent 55%),
-                  var(--bg);
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .pill{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:10px 14px; border:1px solid var(--line);
-      background:rgba(255,255,255,.7); border-radius:999px;
-      color:var(--muted); font-size:13px;
-      backdrop-filter: blur(8px);
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:12px;
-      border:1px solid transparent;
-      background: linear-gradient(90deg, var(--blue), #2dd4bf);
-      color:white; font-weight:650;
-      text-decoration:none;
-      box-shadow: 0 10px 25px rgba(30,64,255,.18);
-      cursor:pointer;
-    }
-    .btn.secondary{
-      background:#ffffff;
-      border:1px solid var(--line);
-      color:var(--text);
-      box-shadow:none;
-    }
-    .btn.small{padding:10px 12px; border-radius:10px; font-weight:650; font-size:14px}
-    .muted{color:var(--muted)}
-    .kicker{font-size:14px; color:var(--muted)}
-    .h1{
-      font-size: clamp(34px, 4.3vw, 54px);
-      letter-spacing:-.02em;
-      margin:14px 0 10px;
-      line-height:1.02;
-    }
-    .h2{
-      font-size: clamp(22px, 2.6vw, 32px);
-      margin:0 0 10px;
-      letter-spacing:-.015em;
-    }
-    .section{padding:54px 0}
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius2);
-      box-shadow: var(--shadow);
-    }
-    .grid{display:grid; gap:16px}
-    .grid-2{grid-template-columns: 1.1fr .9fr}
-    .grid-3{grid-template-columns: repeat(3, 1fr)}
-    .grid-4{grid-template-columns: repeat(4, 1fr)}
-    @media (max-width: 960px){
-      .grid-2{grid-template-columns: 1fr}
-      .grid-3{grid-template-columns: 1fr}
-      .grid-4{grid-template-columns: 1fr 1fr}
-    }
-    @media (max-width: 560px){
-      .grid-4{grid-template-columns: 1fr}
-    }
+header{
+background:white;
+padding:50px 20px;
+box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
 
-    /* Header */
-    .topbar{
-      position: sticky; top:0; z-index:50;
-      background: rgba(243,246,251,.75);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(230,237,247,.9);
-    }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-      height:74px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      text-decoration:none;
-      font-weight:800;
-      letter-spacing:-.02em;
-    }
-    .brand img{
-      width:40px; height:40px; object-fit:contain;
-      border-radius:12px;
-      border:1px solid rgba(230,237,247,.9);
-      background:white;
-      padding:6px;
-    }
-    .nav{
-      display:flex; align-items:center; gap:16px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:14px;
-    }
-    .nav a{ text-decoration:none; padding:10px 10px; border-radius:10px }
-    .nav a:hover{ background:rgba(255,255,255,.7); border:1px solid var(--line) }
-    .menuBtn{
-      display:none;
-      background:white; border:1px solid var(--line);
-      border-radius:12px; padding:10px 12px;
-      font-weight:700;
-    }
-    @media (max-width: 860px){
-      .nav{display:none}
-      .menuBtn{display:inline-flex; align-items:center; gap:8px}
-      .mobileNav{
-        display:none;
-        padding: 10px 0 16px;
-      }
-      .mobileNav.open{display:block}
-      .mobileNav a{
-        display:block; padding:12px 12px;
-        margin:6px 0;
-        background:white;
-        border:1px solid var(--line);
-        border-radius:12px;
-        text-decoration:none;
-        font-weight:650;
-        color:var(--text);
-      }
-    }
+/* AQUÍ CORREGIMOS EL TAMAÑO DEL LOGO PARA QUE SE LEA */
+header img {
+width: 100%;
+max-width: 450px; 
+height: auto;
+}
 
-    /* Hero */
-    .hero{
-      padding:40px 0 14px;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 960px){
-      .heroGrid{grid-template-columns:1fr}
-    }
-    .heroCard{
-      padding:26px 22px;
-    }
-    .heroCard .price{
-      font-size: clamp(34px, 4.2vw, 54px);
-      font-weight:900;
-      letter-spacing:-.02em;
-      color: var(--blue);
-      margin: 8px 0 6px;
-    }
-    .heroCard .sub{
-      color:var(--muted); font-weight:650;
-    }
-    .heroCard .ctaRow{
-      margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;
-    }
+h1{
+margin:30px 0 10px;
+font-size: 2.2rem;
+font-weight: 700;
+}
 
-    /* Deliverables */
-    .tile{
-      padding:18px 18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: #ffffff;
-      box-shadow: 0 8px 18px rgba(8,20,40,.05);
-      display:flex; gap:14px; align-items:flex-start;
-    }
-    .icon{
-      width:42px; height:42px; border-radius:14px;
-      background: rgba(30,64,255,.08);
-      border: 1px solid rgba(30,64,255,.14);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900; color:var(--blue2);
-      flex: 0 0 42px;
-    }
-    .tile h3{margin:0 0 6px; font-size:16px}
-    .tile p{margin:0; color:var(--muted); font-size:14px; line-height:1.45}
+.section{
+max-width:750px;
+margin:40px auto;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 12px 40px rgba(0,0,0,.08);
+}
 
-    /* Callouts */
-    .callout{
-      padding:18px 18px;
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.85));
-    }
-    .callout.green{
-      border-color: rgba(22,163,74,.22);
-      background: linear-gradient(180deg, rgba(22,163,74,.07), rgba(255,255,255,.85));
-    }
-    .callout.dark{
-      color:white;
-      border:1px solid rgba(255,255,255,.12);
-      background: radial-gradient(1200px 800px at 30% 0%, rgba(45,212,191,.18), transparent 60%),
-                  radial-gradient(900px 700px at 90% 10%, rgba(30,64,255,.22), transparent 55%),
-                  #0b1220;
-    }
-    .list{
-      margin:10px 0 0; padding-left:18px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-    .list li{margin:6px 0}
-    .list.dark{color: rgba(255,255,255,.8)}
-    .list.dark li{margin:8px 0}
+.button{
+display:inline-block;
+margin:10px;
+padding:18px 30px;
+background:#1e40ff;
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+font-size: 1.1rem;
+transition: transform 0.2s, background 0.2s;
+}
 
-    /* Pricing */
-    .pricing{
-      overflow:hidden;
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      background:white;
-      box-shadow: var(--shadow);
-    }
-    .pricing .bar{
-      padding:18px 18px;
-      background: linear-gradient(90deg, var(--blue), #2dd4bf);
-      color:white;
-      font-weight:850;
-      font-size:22px;
-    }
-    .pricing .body{
-      padding:18px 18px 20px;
-    }
-    .pricing .big{
-      font-size: 48px;
-      font-weight:950;
-      letter-spacing:-.03em;
-      margin: 6px 0 2px;
-    }
-    .pricing .note{color:var(--muted); font-weight:650}
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(22,163,74,.10);
-      border:1px solid rgba(22,163,74,.22);
-      color: #0b3b1c;
-      font-weight:750;
-      font-size:13px;
-    }
+.button:hover {
+background: #0026e6;
+transform: translateY(-2px);
+}
 
-    /* Form */
-    form{
-      display:grid; gap:12px;
-      padding:18px 18px;
-    }
-    label{font-weight:750; font-size:13px; color:var(--muted)}
-    input, textarea, select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      font-size:14px;
-      outline:none;
-      background:white;
-    }
-    textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus, select:focus{
-      border-color: rgba(30,64,255,.45);
-      box-shadow: 0 0 0 4px rgba(30,64,255,.10);
-    }
-    .formCard{
-      padding:0;
-      overflow:hidden;
-    }
-    .formHead{
-      padding:20px 18px;
-      border-bottom:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(30,64,255,.08), rgba(255,255,255,1));
-    }
-    .formHead .h2{margin:0}
-    .formHead p{margin:8px 0 0; color:var(--muted); font-weight:650}
-    .formRow{
-      display:grid; grid-template-columns: 1fr 1fr; gap:12px;
-    }
-    @media (max-width: 720px){
-      .formRow{grid-template-columns:1fr}
-    }
-    .foot{
-      padding:22px 0 36px;
-      border-top: 1px solid rgba(230,237,247,.9);
-      background: rgba(255,255,255,.55);
-    }
-    .footerGrid{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap:16px; align-items:center;
-    }
-    @media (max-width: 860px){
-      .footerGrid{grid-template-columns:1fr}
-    }
-    .contact{
-      display:flex; flex-wrap:wrap; gap:10px;
-      color:var(--muted);
-      font-weight:650;
-    }
-    .contact a{
-      text-decoration:none;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:12px;
-      background:white;
-    }
-    .contact a:hover{border-color: rgba(30,64,255,.35)}
-    .tiny{font-size:12px; color:var(--muted)}
-  </style>
+footer{
+margin:60px 0;
+color:#556;
+font-size: 0.9rem;
+border-top: 1px solid #ddd;
+padding-top: 20px;
+}
+</style>
 </head>
 
 <body>
-  <!-- Header -->
-  <header class="topbar">
-    <div class="wrap">
-      <div class="topbar-inner">
-        <a class="brand" href="#top">
-          <img src="logo.jpg" alt="Paula Marticorena — Consultant & Trainer" />
-          <div>
-            <div style="font-size:16px; line-height:1;">Compliance Lab</div>
-            <div class="tiny">On-site risk mitigation + capability building</div>
-          </div>
-        </a>
 
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#deliverables">Deliverables</a>
-          <a href="#travel">Why Travel</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Request Info</a>
-          <a class="btn small" href="#contact">Request Information</a>
-        </nav>
+<header>
+<img src="logo.jpg" alt="Paula Marticorena – Consultant & Trainer">
+<h1>Compliance, Risk & Strategic Communication</h1>
+<p style="font-size: 1.2rem; color: #444;"><strong>1-Week On-Site Immersive Lab for Global Teams</strong></p>
+</header>
 
-        <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
-          ☰ Menu
-        </button>
-      </div>
+<div class="section">
+    <p style="font-size: 1.15rem; color: #333; margin-bottom: 30px; padding: 0 20px;">
+        <strong>Immersive Compliance & Incident Communication Labs.</strong> We empower global teams with on-site training in legal English, ethics, and risk language. Master <strong>ISO 37301</strong> and <strong>GDPR</strong> communication in multicultural environments.
+    </p>
 
-      <div class="mobileNav" id="mobileNav">
-        <a href="#deliverables">Deliverables</a>
-        <a href="#travel">Why Travel</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Request Info</a>
-        <a href="#contact">Request Information</a>
-      </div>
-    </div>
-  </header>
+    <h2 style="color: #1e40ff;">Investment</h2>
+    <p style="font-size:36px; font-weight:bold; margin: 10px 0;">USD 9,000 – 15,000</p>
+    <p style="color: #666; margin-bottom: 30px;">Tailored solutions for remote and cross-border operations.</p>
 
-  <!-- Hero -->
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="pill">✅ Practical • Immediately usable • Company-specific • EN/ES-ready</div>
+    <a class="button" href="mailto:marticorenapau@gmail.com">Request Information</a>
+    <a class="button" href="https://wa.me/5491163055252" style="background:#25D366;">WhatsApp</a>
+</div>
 
-        <h1 class="h1">1-Week On-Site Immersive Lab</h1>
-        <div class="kicker">Compliance, Risk & Incident Communication for Global Teams</div>
+<footer>
+    © 2026 Paula Marticorena – Consultant & Trainer <br>
+    Specialist in Family Law & Succession | Bilingual Legal Educator
+</footer>
 
-        <div class="heroGrid" style="margin-top:18px;">
-          <div class="card heroCard">
-            <div class="muted" style="font-weight:800;">Investment</div>
-            <div class="price">USD 9,000 – 15,000</div>
-            <div class="sub">5 full days on-site + all deliverables</div>
-
-            <div class="ctaRow">
-              <a class="btn" href="#contact">Request Information</a>
-              <a class="btn secondary" href="#pricing">See pricing</a>
-            </div>
-
-            <div style="margin-top:14px; color:var(--muted); line-height:1.6;">
-              Positioned as an <b>immersive lab</b> — not generic training.  
-              Focused on <b>risk mitigation</b>, <b>evidence protection</b>, and <b>clear English</b> under pressure.
-            </div>
-          </div>
-
-          <div class="card heroCard" style="padding:22px;">
-            <div class="h2" style="margin:0 0 10px;">What You Receive</div>
-            <ul class="list">
-              <li>Incident Response Playbook (company-specific)</li>
-              <li>Evidence Log & Chain of Custody templates</li>
-              <li>Breach Notification decision tree</li>
-              <li>Contractual Risk checklist</li>
-              <li>Compliance & Data Security checklist</li>
-              <li>Crisis Communication Guide (EN/ES)</li>
-              <li>Executive Summary Report (board-ready)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Deliverables (tiles) -->
-    <section id="deliverables" class="section">
-      <div class="wrap">
-        <h2 class="h2">High-value, tangible deliverables</h2>
-        <div class="muted" style="font-weight:650; margin-bottom:16px;">
-          Practical, immediately usable, designed for non-native English speakers.
-        </div>
-
-        <div class="grid grid-3">
-          <div class="tile">
-            <div class="icon">IR</div>
-            <div>
-              <h3>Incident Response Playbook</h3>
-              <p>Company-specific. Immediately actionable under real pressure.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">EV</div>
-            <div>
-              <h3>Evidence Log & Chain of Custody</h3>
-              <p>Templates for proper evidence handling and defensible documentation.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">BR</div>
-            <div>
-              <h3>Breach Notification Decision Tree</h3>
-              <p>Clear framework for critical decisions (who, when, what to notify).</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">CR</div>
-            <div>
-              <h3>Contractual Risk Checklist</h3>
-              <p>Identify risk hiding in plain sight in vendor and client agreements.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">DS</div>
-            <div>
-              <h3>Compliance & Data Security Checklist</h3>
-              <p>Practical, non-academic guidance teams can implement fast.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">CC</div>
-            <div>
-              <h3>Crisis Communication Guide (EN/ES)</h3>
-              <p>Language guide for high-pressure scenarios — clarity, tone, and precision.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">EX</div>
-            <div>
-              <h3>Executive Summary Report</h3>
-              <p>Board-ready documentation of what was done, found, and improved.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">✓</div>
-            <div>
-              <h3>Practical & Company-Specific</h3>
-              <p>Not theory. Your context, your workflow, your risks.</p>
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="icon">EN</div>
-            <div>
-              <h3>English-Ready Execution</h3>
-              <p>Tools + phrasing to communicate clearly in English before a crisis hits.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why travel -->
-    <section id="travel" class="section" style="padding-top:18px;">
-      <div class="wrap">
-        <div class="grid grid-2">
-          <div class="callout">
-            <h2 class="h2" style="margin-top:0;">Why This Justifies International Travel</h2>
-            <div class="muted" style="font-weight:650;">On-site immersion creates lasting transformation.</div>
-
-            <div style="margin-top:14px" class="callout">
-              <div style="display:flex; gap:12px; align-items:flex-start;">
-                <div class="icon" style="background:rgba(30,64,255,.10); border-color:rgba(30,64,255,.18);">🏢</div>
-                <div>
-                  <div style="font-weight:900; margin-bottom:6px;">From Client’s Perspective</div>
-                  <ul class="list" style="margin-top:0;">
-                    <li>One real incident costs more than the entire lab</li>
-                    <li>On-site immersion creates real behavioural change</li>
-                    <li>Teams align faster, deeper, and more sustainably</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="callout green">
-            <div style="display:flex; gap:12px; align-items:flex-start;">
-              <div class="icon" style="background:rgba(22,163,74,.12); border-color:rgba(22,163,74,.22); color:var(--green);">↗</div>
-              <div>
-                <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Expert Positioning</div>
-                <ul class="list" style="margin-top:0;">
-                  <li>This is not training — it’s risk mitigation + capability building</li>
-                  <li>Travel signals senior, embedded expertise</li>
-                  <li>Not generic content — context-specific intervention</li>
-                </ul>
-              </div>
-            </div>
-
-            <div style="margin-top:14px;" class="callout dark">
-              <div style="display:flex; gap:12px; align-items:flex-start;">
-                <div class="icon" style="background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.14); color:white;">🧳</div>
-                <div>
-                  <div style="font-weight:900; font-size:18px; margin-bottom:8px;">One-Line Pitch</div>
-                  <div style="color:rgba(255,255,255,.9); line-height:1.65;">
-                    “We run immersive, on-site compliance and incident-response labs that help global teams reduce legal risk,
-                    protect evidence and communicate clearly in English — before a real crisis hits.”
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="section">
-      <div class="wrap">
-        <h2 class="h2">Investment</h2>
-        <div class="muted" style="font-weight:650; margin-bottom:16px;">
-          Positioned as immersive lab, not generic training.
-        </div>
-
-        <div class="pricing">
-          <div class="bar">1-Week On-Site Immersive Lab</div>
-          <div class="body">
-            <div class="note">5 full days on-site + all deliverables</div>
-            <div class="big">USD 9,000 – 15,000</div>
-            <div class="note">Travel & accommodation additional</div>
-
-            <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;">
-              <span class="tag">Includes: customized playbook + templates + communication guide</span>
-              <span class="tag" style="background:rgba(30,64,255,.10); border-color:rgba(30,64,255,.22); color:#0b1a55;">Team-ready outputs</span>
-              <span class="tag" style="background:rgba(176,138,47,.12); border-color:rgba(176,138,47,.20); color:#3b2a05;">Board-ready report</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-2" style="margin-top:16px;">
-          <div class="callout">
-            <div style="font-weight:900; margin-bottom:6px;">Optional Add-Ons</div>
-
-            <div class="grid" style="gap:12px; margin-top:12px;">
-              <div class="callout" style="border-radius:16px;">
-                <div style="font-weight:900;">Pre-Work (Online)</div>
-                <div style="font-size:34px; font-weight:950; color:var(--green); margin:6px 0;">USD 1,500 – 3,000</div>
-                <div class="muted" style="font-weight:650;">Preparation modules before the immersive week</div>
-              </div>
-
-              <div class="callout green" style="border-radius:16px;">
-                <div style="font-weight:900;">Post-Lab Follow-Up (Online)</div>
-                <div style="font-size:34px; font-weight:950; color:var(--green); margin:6px 0;">USD 2,000 – 4,000</div>
-                <div class="muted" style="font-weight:650;">Ongoing support and reinforcement</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="callout" style="border-left:6px solid #f59e0b;">
-            <div style="font-weight:950; font-size:18px; margin-bottom:8px;">ROI Consideration</div>
-            <div style="font-size:16px; line-height:1.7; color:var(--text);">
-              One real incident costs more than the entire lab.  
-              This is risk mitigation and capability building, not just training.
-            </div>
-
-            <div style="height:14px"></div>
-
-            <div class="callout">
-              <div style="font-weight:950; font-size:18px; margin-bottom:6px;">Trusted by Global Leaders</div>
-              <div class="muted" style="font-weight:650;">
-                Professionals from 15+ countries have transformed their incident response capabilities.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="#contact">Request Information</a>
-          <a class="btn secondary" href="#deliverables">Review deliverables</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact / Form -->
-    <section id="contact" class="section">
-      <div class="wrap">
-        <div class="card formCard">
-          <div class="formHead">
-            <h2 class="h2">Request Information</h2>
-            <p>Let’s discuss how this immersive lab can transform your team’s incident response capabilities.</p>
-          </div>
-
-          <!-- Netlify form: submissions will appear in Netlify > Forms -->
-          <form name="request-info" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="request-info" />
-
-            <div class="formRow">
-              <div>
-                <label for="fullName">Full Name *</label>
-                <input id="fullName" name="fullName" placeholder="John Smith" required />
-              </div>
-              <div>
-                <label for="email">Email Address *</label>
-                <input id="email" name="email" type="email" placeholder="john.smith@company.com" required />
-              </div>
-            </div>
-
-            <div class="formRow">
-              <div>
-                <label for="company">Company Name *</label>
-                <input id="company" name="company" placeholder="Your Company" required />
-              </div>
-              <div>
-                <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" placeholder="+1 (555) 000-0000" />
-              </div>
-            </div>
-
-            <div class="formRow">
-              <div>
-                <label for="role">Your Role *</label>
-                <input id="role" name="role" placeholder="Founder / Legal / Ops / IT Lead" required />
-              </div>
-              <div>
-                <label for="preferred">Preferred Format</label>
-                <select id="preferred" name="preferred">
-                  <option>1-Week On-Site Lab</option>
-                  <option>Pre-Work (Online) + On-Site Lab</option>
-                  <option>On-Site Lab + Post-Lab Follow-Up</option>
-                  <option>Full Package (Pre + On-Site + Post)</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label for="notes">Briefly describe your context</label>
-              <textarea id="notes" name="notes" placeholder="What kind of incidents/risks are you preparing for? What countries/time zones? Any compliance constraints?"></textarea>
-            </div>
-
-            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-              <button class="btn" type="submit">Send Request</button>
-              <a class="btn secondary" href="#top">Back to top</a>
-              <span class="tiny">You’ll receive a reply within 24–48 hours.</span>
-            </div>
-
-            <div class="tiny" style="margin-top:4px;">
-              By submitting, you agree to be contacted about this request. (No spam.)
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="foot">
-    <div class="wrap">
-      <div class="footerGrid">
-        <div>
-          <div style="display:flex; align-items:center; gap:12px;">
-            <img src="logo.jpg" alt="Paula Marticorena" style="width:48px; height:48px; object-fit:contain; border-radius:14px; border:1px solid var(--line); background:white; padding:6px;">
-            <div>
-              <div style="font-weight:950; font-size:16px;">Paula Marticorena</div>
-              <div class="muted" style="font-weight:650;">Consultant & Trainer — Compliance Lab</div>
-            </div>
-          </div>
-          <div class="tiny" style="margin-top:10px;">
-            EN/ES • Practical deliverables • Risk mitigation + capability building
-          </div>
-        </div>
-
-        <div>
-          <div class="contact">
-            <a href="mailto:marticorenapau@gmail.com">📧 marticorenapau@gmail.com</a>
-            <a href="https://wa.me/541163055252" target="_blank" rel="noopener">💬 WhatsApp +54 11 6305 5252</a>
-            <a href="http://linkedin.com/in/paula-marticorena" target="_blank" rel="noopener">🔗 LinkedIn</a>
-          </div>
-          <div class="tiny" style="margin-top:10px;">
-            © <span id="year"></span> Paula Marticorena. All rights reserved.
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    if (menuBtn && mobileNav){
-      menuBtn.addEventListener('click', () => {
-        const open = mobileNav.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded', String(open));
-      });
-
-      // Close menu after clicking a link
-      mobileNav.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('click', ()=>{
-          mobileNav.classList.remove('open');
-          menuBtn.setAttribute('aria-expanded', "false");
-        });
-      });
-    }
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
