@@ -3,109 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paula Marticorena – Compliance & Communication</title>
+<title>Paula Marticorena | Compliance & Strategic Communication</title>
 <style>
-    :root { --blue: #0052FF; --dark: #0A1128; --gray: #64748b; }
-    body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; padding: 0; color: var(--dark); background: #ffffff; line-height: 1.6; }
+    :root { --blue: #0052FF; --dark: #0A1128; --light-bg: #F8FAFC; --text: #334155; }
+    body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; color: var(--text); background: white; line-height: 1.6; }
     
-    /* Layout */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
-    header { padding: 40px 0; border-bottom: 1px solid #f0f0f0; }
-    
-    /* Logo - Manteniendo el tamaño que funcionó */
-    .logo { width: 100%; max-width: 400px; height: auto; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+    header { padding: 40px 0; background: white; text-align: center; border-bottom: 1px solid #f0f4f8; }
+    .logo { width: 100%; max-width: 450px; height: auto; display: block; margin: 0 auto; }
 
-    .hero { display: flex; flex-wrap: wrap; align-items: center; padding: 80px 0; gap: 60px; }
-    .hero-content { flex: 1; min-width: 320px; text-align: left; }
-    .hero-image { flex: 1; min-width: 320px; }
-    .hero-image img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 0px #f0f4ff; }
+    /* Hero Section */
+    .hero { padding: 80px 0; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%); }
+    h1 { font-size: 3.2rem; color: var(--dark); margin: 20px 0; line-height: 1.1; font-weight: 800; }
+    .manifesto { max-width: 800px; margin: 0 auto 40px; font-size: 1.25rem; color: var(--text); font-style: italic; border-left: 4px solid var(--blue); padding-left: 20px; text-align: left; }
 
-    h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 24px; color: var(--dark); font-weight: 800; letter-spacing: -0.02em; }
-    .tagline { color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 16px; display: block; }
-    
-    .description { font-size: 1.25rem; color: var(--gray); margin-bottom: 40px; }
-    
-    .details { background: #f8fafc; padding: 60px 0; text-align: left; }
-    .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
-    
-    h3 { color: var(--blue); margin-bottom: 15px; }
-    ul { padding-left: 20px; color: var(--gray); }
-    li { margin-bottom: 10px; }
+    /* Service Cards */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
+    .card { border: 1px solid #e2e8f0; padding: 45px; border-radius: 20px; background: white; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,82,255,0.08); border-color: var(--blue); }
+    .card h2 { color: var(--dark); font-size: 1.8rem; margin-top: 15px; }
+    .tag { position: absolute; top: 20px; left: 45px; background: var(--blue); color: white; padding: 5px 15px; border-radius: 30px; font-size: 0.75rem; font-weight: bold; }
+    .price-tag { font-size: 1.5rem; font-weight: 800; color: var(--blue); margin-top: auto; padding-top: 20px; }
 
-    /* Botones Estilo Original */
-    .cta-group { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
-    .btn { padding: 16px 32px; border-radius: 4px; font-weight: 600; text-decoration: none; transition: 0.3s; font-size: 1rem; }
-    .btn-primary { background: var(--dark); color: white; }
-    .btn-primary:hover { background: var(--blue); }
+    /* Program Details */
+    .details-section { padding: 80px 0; background: var(--light-bg); border-radius: 40px 40px 0 0; }
+    .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
+    .day-box { background: white; padding: 25px; border-radius: 12px; border-top: 4px solid var(--blue); }
+    h3 { color: var(--dark); margin-bottom: 10px; }
+
+    /* Buttons */
+    .cta-group { margin-top: 50px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn { padding: 18px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 1.05rem; }
+    .btn-dark { background: var(--dark); color: white; }
+    .btn-whatsapp { background: #25D366; color: white; }
     .btn-outline { border: 2px solid var(--dark); color: var(--dark); }
-    .btn-outline:hover { background: var(--dark); color: white; }
-    .btn-linkedin { background: #0077b5; color: white; }
 
-    footer { padding: 60px 0; border-top: 1px solid #eee; color: var(--gray); font-size: 0.9rem; }
+    footer { padding: 80px 0; text-align: center; background: white; border-top: 1px solid #eee; }
 
-    @media (max-width: 768px) { h1 { font-size: 2.5rem; } .hero { padding: 40px 0; } }
+    @media (max-width: 850px) { .services-grid, .agenda-grid { grid-template-columns: 1fr; } h1 { font-size: 2.2rem; } }
 </style>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <img src="logo.jpg" onerror="this.src='logo.jpg.jpg'" class="logo" alt="Paula Marticorena">
+        <img src="logo.jpg" onerror="this.src='logo.jpg.jpg'" class="logo" alt="Paula Marticorena Logo">
     </div>
 </header>
 
-<main>
-    <section class="container hero">
-        <div class="hero-content">
-            <span class="tagline">1-WEEK ON-SITE IMMERSIVE LAB</span>
-            <h1>Compliance, Risk & Strategic Communication</h1>
-            <p class="description">
-                In practice, many compliance failures don’t come from a lack of rules. 
-                They come from communication breakdowns in English inside international organizations.
-            </p>
-            <div class="cta-group">
-                <a href="https://wa.me/5491163055252" class="btn btn-primary">WhatsApp Me</a>
-                <a href="mailto:marticorenapau@gmail.com" class="btn btn-outline">Email Inquiry</a>
-                <a href="https://www.linkedin.com/in/paula-marticorena" target="_blank" class="btn btn-linkedin">LinkedIn</a>
+<section class="hero">
+    <div class="container">
+        <h1>Strategic Compliance & <br>Incident Communication</h1>
+        <div class="manifesto">
+            "Compliance failures don’t come from a lack of rules. They come from communication breakdowns in English inside international organizations. One real incident costs more than the entire lab."
+        </div>
+        
+        <div class="services-grid">
+            <div class="card">
+                <span class="tag">FLAGSHIP ON-SITE</span>
+                <h2>1-Week Immersive Lab</h2>
+                <p>A full working week at your HQ or corporate retreat. Behavioral change through high-pressure simulations and live role-plays.</p>
+                <ul style="text-align: left; font-size: 0.95rem; padding-left: 20px;">
+                    <li>ISO 37301 & GDPR Foundations</li>
+                    <li>Live Incident Simulation (Full Day)</li>
+                    <li>Company-Specific Playbook Delivery</li>
+                </ul>
+                <div class="price-tag">USD 9,000 – 15,000</div>
+            </div>
+
+            <div class="card">
+                <span class="tag" style="background: #6366f1;">INTENSIVE TRAINING</span>
+                <h2>Digital Incident Response</h2>
+                <p>Focused training for global startups and remote teams. Contract-safe and evidence-solid communication (EN/ES).</p>
+                <ul style="text-align: left; font-size: 0.95rem; padding-left: 20px;">
+                    <li>3 Sessions (2 Hours each)</li>
+                    <li>Evidence preservation & Chain of Custody</li>
+                    <li>Breach Notification Decision-making</li>
+                </ul>
+                <div class="price-tag">Global Group Pricing</div>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="logo.jpg" onerror="this.src='logo.jpg.jpg'" alt="Training session">
-        </div>
-    </section>
 
-    <section class="details">
-        <div class="container">
-            <div class="details-grid">
-                <div>
-                    <h3>Focus Areas</h3>
-                    <ul>
-                        <li>Legal & Compliance communication</li>
-                        <li>Contracts, ethics & risk language</li>
-                        <li>Clear communication for non-native speakers</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Applied To</h3>
-                    <ul>
-                        <li>ISO 37301 Compliance Systems</li>
-                        <li>GDPR & Data Protection</li>
-                        <li>Cross-border environments</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Investment</h3>
-                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark); margin: 10px 0;">USD 9k – 15k</p>
-                    <p>Decision-making, risk and responsibility — in a second language.</p>
+        <div class="cta-group">
+            <a href="https://wa.me/5491163055252" class="btn btn-whatsapp">WhatsApp Inquiry</a>
+            <a href="mailto:marticorenapau@gmail.com" class="btn btn-outline">Email Proposals</a>
+            <a href="https://www.linkedin.com/in/paula-marticorena" target="_blank" class="btn btn-dark">LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<section class="details-section">
+    <div class="container">
+        <h2 style="text-align:center; font-size: 2.2rem; color: var(--dark); margin-bottom: 50px;">Detailed Agendas</h2>
+        
+        <div class="agenda-grid">
+            <div>
+                <h3 style="border-bottom: 2px solid var(--blue); padding-bottom: 10px;">The 5-Day Immersive Lab</h3>
+                <div class="day-box" style="margin-top:20px;"><strong>DAY 1:</strong> Framework, Liability & ISO 37301.</div>
+                <div class="day-box" style="margin-top:10px;"><strong>DAY 2:</strong> Contracts & Decision Making under stress.</div>
+                <div class="day-box" style="margin-top:10px;"><strong>DAY 3:</strong> Digital Evidence Mechanics & Handling.</div>
+                <div class="day-box" style="margin-top:10px;"><strong>DAY 4:</strong> Live Simulation & Role-plays (EN).</div>
+                <div class="day-box" style="margin-top:10px;"><strong>DAY 5:</strong> Playbook Building & Executive Debrief.</div>
+            </div>
+
+            <div>
+                <h3 style="border-bottom: 2px solid #6366f1; padding-bottom: 10px;">Digital Response (3 Sessions)</h3>
+                <div class="day-box" style="margin-top:20px; border-top-color: #6366f1;"><strong>SESSION 1:</strong> Data Protection & Compliance Foundations (AR/EU).</div>
+                <div class="day-box" style="margin-top:10px; border-top-color: #6366f1;"><strong>SESSION 2:</strong> Evidence Basics & Chain of Custody Lab.</div>
+                <div class="day-box" style="margin-top:10px; border-top-color: #6366f1;"><strong>SESSION 3:</strong> Breach Notification & Crisis Comms in English.</div>
+                
+                <div style="margin-top: 30px; background: var(--dark); color: white; padding: 25px; border-radius: 12px;">
+                    <strong>Deliverables included:</strong> Playbook templates, Evidence logs, Contractual checklists, and Crisis Language Guides.
                 </div>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 
-<footer class="container">
-    <p><strong>© 2026 Paula Marticorena – Consultant & Trainer</strong></p>
-    <p>Specialist in Family Law & Succession | Bilingual Legal Educator</p>
+<footer>
+    <div class="container">
+        <p><strong>© 2026 Paula Marticorena – Consultant & Trainer</strong></p>
+        <p>Specialist in Family Law & Succession | Bilingual Legal Educator</p>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 15px;">GDPR-ready · ISO 37301 · Evidence-solid (EN/ES)</p>
+    </div>
 </footer>
 
 </body>
